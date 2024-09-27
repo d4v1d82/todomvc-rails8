@@ -1,6 +1,8 @@
 <li id="<%= dom_id todo %>">
-  <div class="view">
-    <input class="toggle" type="checkbox" <%=todo.completed? ? "checked": "" %>>
-    <label><%=todo.title%></label>
-  </div>
+  <%= form_with(model: todo,  data: { controller: "form-toggle" }) do |form| %>
+    <div class="view">
+      <%= form.checkbox :completed, class: "toggle", data: { action: "form-toggle#submit" } %>
+      <label><%=todo.title%></label>
+    </div>
+  <% end %>
 </li>

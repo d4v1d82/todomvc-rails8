@@ -66,6 +66,14 @@ class TodosController < ApplicationController
     end
   end
 
+  def clear_completed
+    Todo.completed.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to todos_path, status: :see_other, notice: "Completed todos were successfully destroyed" }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo

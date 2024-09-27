@@ -1,3 +1,4 @@
 class Todo < ApplicationRecord
-scope :pending, -> { where(completed: false) }
+scope :active, -> { where(completed: false) }
+scope :completed, -> { where(completed: true) }
 end

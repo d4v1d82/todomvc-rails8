@@ -3,9 +3,19 @@ class TodosController < ApplicationController
 
   # GET /todos or /todos.json
   def index
+    @scope = params[:scope] || "all"
     @todos = Todo.all
+    @todos = case @scope
+    when "active"
+        @todos.active
+    when "completed"
+        @todos.completed
+    else
+        @todos
+    end
+
     @todo = Todo.new
-    @todosLeftCount = Todo.pending.count
+    @todosLeftCount = Todo.active.count
   end
 
   # GET /todos/1 or /todos/1.json

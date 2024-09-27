@@ -18,13 +18,13 @@
     <span class="todo-count"><%=pluralize @todosLeftCount, "item left", "items left"%></span>
     <ul class="filters">
       <li>
-        <a href="#/" class="selected">All</a>
+        <a href="<%=todos_path%>" class="<%=class_names "selected": @scope == "all" || @scope.nil?%>">All</a>
       </li>
       <li>
-        <a href="#/active">Active</a>
+        <a href="<%=todos_path(scope: "active")%>" class="<%=class_names "selected": @scope == "active"%>">Active</a>
       </li>
       <li>
-        <a href="#/completed">Completed</a>
+        <a href="<%=todos_path(scope: "completed")%>" class="<%=class_names "selected": @scope == "completed"%>">Completed</a>
       </li>
     </ul>
     <button class="clear-completed">Clear completed</button>

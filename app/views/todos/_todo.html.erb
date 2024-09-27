@@ -1,12 +1,6 @@
-<div id="<%= dom_id todo %>">
-  <p>
-    <strong>Title:</strong>
-    <%= todo.title %>
-  </p>
-
-  <p>
-    <strong>Completed:</strong>
-    <%= todo.completed %>
-  </p>
-
-</div>
+<li id="<%= dom_id todo %>">
+  <div class="view">
+    <input class="toggle" type="checkbox" <%=todo.completed? ? "checked": "" %>>
+    <label><%=todo.title%></label>
+  </div>
+</li>

@@ -1,16 +1,32 @@
 <p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Todos" %>
-
-<h1>Todos</h1>
-
-<div id="todos">
-  <% @todos.each do |todo| %>
-    <%= render todo %>
-    <p>
-      <%= link_to "Show this todo", todo %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New todo", new_todo_path %>
+<section class="todoapp">
+  <header class="header">
+    <h1>todos</h1>
+    <%= render "form", todo: @todo%>
+  </header>
+  <main class="main">
+    <div class="toggle-all-container">
+      <input class="toggle-all" type="checkbox" />
+      <label class="toggle-all-label" for="toggle-all">Mark all as complete</label>
+    </div>
+    <ul class="todo-list">
+      <%=render @todos%>
+    </ul>
+  </main>
+  <footer class="footer">
+    <span class="todo-count"></span>
+    <ul class="filters">
+      <li>
+        <a href="#/" class="selected">All</a>
+      </li>
+      <li>
+        <a href="#/active">Active</a>
+      </li>
+      <li>
+        <a href="#/completed">Completed</a>
+      </li>
+    </ul>
+    <button class="clear-completed">Clear completed</button>
+  </footer>
+</section>

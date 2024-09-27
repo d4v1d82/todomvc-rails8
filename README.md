@@ -1,24 +1,27 @@
-# README
+# Rails 8 • [TodoMVC](http://todomvc.com)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Bootstrap Rails
 
-Things you may want to cover:
+```sh
+rails new todo-rails8 --devcontainer
+rails g scaffold todo title:string completed:boolean
+```
 
-* Ruby version
+## Run dev
 
-* System dependencies
+```sh
+rails dev
+```
 
-* Configuration
+## Run tests
 
-* Database creation
+```sh
+rails test:all
+```
 
-* Database initialization
+or
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+rails test
+rails test:system
+```

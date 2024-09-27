@@ -6,5 +6,6 @@
         <label><%=todo.title%></label>
       <%end%>
     <% end %>
+    <%= button_to "", todo_path(todo), method: :delete, data: { "turbo-frame": "_top" }, class: "destroy" %>
   </turbo-frame>
 </li>

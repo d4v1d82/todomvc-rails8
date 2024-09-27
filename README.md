@@ -7,6 +7,13 @@ rails new todo-rails8 --devcontainer
 rails g scaffold todo title:string completed:boolean
 ```
 
+## Setup dev
+
+```sh
+bundle install
+rails db:migrate
+```
+
 ## Run dev
 
 ```sh

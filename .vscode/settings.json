@@ -1,0 +1,7 @@
+{
+    "vscode-erb-beautify.useBundler": true,
+    "files.associations": {
+        "*.html.erb": "erb"
+    },
+    "editor.formatOnSave": true
+}

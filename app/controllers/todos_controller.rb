@@ -5,6 +5,7 @@ class TodosController < ApplicationController
   def index
     @todos = Todo.all
     @todo = Todo.new
+    @todosLeftCount = Todo.pending.count
   end
 
   # GET /todos/1 or /todos/1.json

@@ -15,7 +15,7 @@
     </ul>
   </main>
   <footer class="footer">
-    <span class="todo-count"></span>
+    <span class="todo-count"><%=pluralize @todosLeftCount, "item left", "items left"%></span>
     <ul class="filters">
       <li>
         <a href="#/" class="selected">All</a>

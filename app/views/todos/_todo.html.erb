@@ -1,6 +1,6 @@
 <li>
   <turbo-frame id="<%= dom_id todo, :edit %>">
-    <%= form_with(model: todo,  data: { controller: "form-toggle" }) do |form| %>
+    <%= form_with(model: todo,  data: { controller: "form-toggle", "turbo-frame": "_top" }) do |form| %>
       <%=tag.div class: "view", data: {controller: "inline-edit", action: "dblclick->inline-edit#render", "inline-edit-url-value": edit_todo_path(todo)} do %>
         <%= form.checkbox :completed, class: "toggle", data: { action: "form-toggle#submit" } %>
         <label><%=todo.title%></label>

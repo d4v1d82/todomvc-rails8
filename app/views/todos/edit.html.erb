@@ -1,6 +1,5 @@
 <% content_for :title, "Editing todo" %>
 <h1>Editing todo</h1>
-<turbo-frame id="<%= dom_id @todo %>">
+<turbo-frame id="<%= dom_id @todo, :edit %>">
   <%= render "form", todo: @todo %>
-  <%= link_to "Cancel", todos_path %>
 </turbo-frame>

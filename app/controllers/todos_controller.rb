@@ -27,10 +27,9 @@ class TodosController < ApplicationController
     respond_to do |format|
       if @todo.save
         format.html { redirect_to action: :index }
-        format.json { render :show, status: :created, location: @todo }
+
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,10 +39,9 @@ class TodosController < ApplicationController
     respond_to do |format|
       if @todo.update(todo_params)
         format.html { redirect_to action: :index }
-        format.json { render :show, status: :ok, location: @todo }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
+
       end
     end
   end
@@ -54,7 +52,6 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to todos_path, status: :see_other, notice: "Todo was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

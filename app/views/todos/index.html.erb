@@ -8,7 +8,7 @@
   <% if @todos.present? %>
     <main class="main">
       <div class="toggle-all-container">
-        <input class="toggle-all" type="checkbox" />
+        <input class="toggle-all" type="checkbox" <%=@todos.all?(&:completed?) ? "checked" : ""%> />
         <label class="toggle-all-label" for="toggle-all">Mark all as complete</label>
       </div>
       <ul class="todo-list">

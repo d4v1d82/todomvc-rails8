@@ -1,5 +1,6 @@
 <% content_for :title, "Editing todo" %>
 <h1>Editing todo</h1>
-<turbo-frame id="<%= dom_id @todo, :edit %>">
+<%= turbo_frame_tag  dom_id(@todo, :edit) do %>
   <%= render "form", todo: @todo %>
-</turbo-frame>
+  <span class="loader"></span>
+<% end %>

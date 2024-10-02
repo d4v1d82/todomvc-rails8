@@ -49,6 +49,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
+        # sleep 3
         format.html { redirect_to action: :index }
       else
         format.html { render :edit, status: :unprocessable_entity }

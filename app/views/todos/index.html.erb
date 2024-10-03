@@ -6,29 +6,6 @@
     <%= render "form", todo: @todo%>
   </header>
   <% if @todos.present? %>
-    <main class="main">
-      <div class="toggle-all-container">
-        <input class="toggle-all" type="checkbox" <%=@todos.all?(&:completed?) ? "checked" : ""%> />
-        <label class="toggle-all-label" for="toggle-all">Mark all as complete</label>
-      </div>
-      <ul class="todo-list">
-        <%=render @todos%>
-      </ul>
-    </main>
-    <footer class="footer">
-      <span class="todo-count"><%=pluralize @todosLeftCount, "item left", "items left"%></span>
-      <ul class="filters">
-        <li>
-          <a href="<%=todos_path%>" class="<%=class_names "selected": @scope == "all" || @scope.nil?%>">All</a>
-        </li>
-        <li>
-          <a href="<%=todos_path(scope: "active")%>" class="<%=class_names "selected": @scope == "active"%>">Active</a>
-        </li>
-        <li>
-          <a href="<%=todos_path(scope: "completed")%>" class="<%=class_names "selected": @scope == "completed"%>">Completed</a>
-        </li>
-      </ul>
-      <%= button_to "Clear completed", clear_completed_todos_path, method: :delete, data: { "turbo-frame": "_top" }, class: "clear-completed" %>
-    </footer>
+    <%= render partial: "list"%>
   <% end %>
 </section>

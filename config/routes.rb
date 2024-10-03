@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :todos do
     collection do
       delete :clear_completed
+      post :toggle_all
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

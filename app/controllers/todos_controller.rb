@@ -75,6 +75,19 @@ class TodosController < ApplicationController
     end
   end
 
+  def toggle_all
+    check_all = params[:check_all]
+    Todo.update_all(completed: check_all)
+    @todos = Todo.all
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(:list, partial: "list")
+      end
+      format.html { redirect_to todos_path, status: :see_other, notice: "All todos were successfully toggled" }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
